@@ -1,0 +1,33 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+{% for i in pg_obj%}
+    {{i}}
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if pg_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pg_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        {% for p in pagi.page_range %}
+
+        <a href="?page={{ p }}">{{p}}</a>
+        {% endfor %}
+
+
+        {% if pg_obj.has_next %}
+            <a href="?page={{ pg_obj.next_page_number }}">next</a>
+            <a href="?page={{ pg_obj.paginator.num_pages }}&build=000">last &raquo;</a>
+        {% endif %}
+        <br>
+        <span class="current">
+            Page {{ pg_obj.number }} of {{ pg_obj.paginator.num_pages }}.
+        </span>
+    </span>
+</div>
+{% endblock %}
+
+
