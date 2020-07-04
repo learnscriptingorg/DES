@@ -8,7 +8,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
+<script>
+$(document).ready(function(){
+ $(".h_con").hide();
 
+  $("#111").click(function(){
+    $(".h_con").fadeToggle();
+  });
+});
+</script>
 
 <script>
 function myFunction() {
@@ -45,17 +53,32 @@ function myFunction() {
         </thead>
         <tbody>
 
-            <tr onclick="myFunction()">
-
-                <td>Aaa Nixon
-                    <div id="myDIV"  >323333334234</div>
-                </td>
-
-                <td>System Architect</td>
+            <tr>
+                <td>AAAAAAAAA</td>
                 <td>Edinburgh</td>
                 <td>61</td>
                 <td>2011/04/25</td>
                 <td>$320,800</td>
+
+                <td ><div id="111">353345435</div>
+                   <table>
+                    <div  class="h_con">
+                        sample data
+                        <div>
+                                                <form>
+                          <label for="fname">First name:</label><br>
+                          <input type="text" id="fname" name="fname"><br>
+                          <label for="lname">Last name:</label><br>
+                          <input type="text" id="lname" name="lname">
+                        </form>
+                    </div>
+                    </div>
+                     </table>
+                </td>
+
+
+
+
 
             </tr>
 
