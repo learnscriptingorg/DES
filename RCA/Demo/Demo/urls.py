@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('anaboard1/',include('anaboard1.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('triage/',include('triage.urls')),
+    path('analysis/',include('analysis.urls')),
     path('', admin.site.urls),
 ]
