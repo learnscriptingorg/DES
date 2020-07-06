@@ -2,20 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DES Dashboard xxx</title>
-    {% block head-css %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>DES Dashboard xxxz</title>
+
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
 
     <script>
         $(function(){
@@ -34,8 +30,7 @@
 
 
                 $.each(data.name, function(key, value) {
-     $('#builds')
-         .append($("<option></option>")
+                 $('#builds').append($("<option></option>")
                     .attr("value", key)
                     .text(value));
                     console.log(value);
@@ -49,25 +44,145 @@
         });
 
     </script>
-    {% endblock %}
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+    } );
+
+    </script>
+    <script>
+$(document).ready(function(){
+ $(".h_con").hide();
+
+  $(".base_hcon").click(function(){
+   var id=$(this).attr("id");
+    console.log("#"+id+"_hidden");
+    $("#"+id+"_hidden").fadeToggle();
+  });
+});
+
+</script>
+
+<script>
+
+</script>
+
+
     <br>
 </head>
 <body>
-<div class="container">
+<div class="container" style="background: green;" >
+    <span class="badge badge-pill badge-primary">BR Name</span>
     <select class="selectpicker" id="project_name" data-url="{% url 'index'%}">
         <option>1</option>
         <option>2</option>
         <option>3</option>
     </select>
-
-</div>
-
+    <span class="badge badge-pill badge-primary">Build Name</span>
 <select id="builds">
     <option>1</option>
 
 </select>
-<div>{{ builds }}</div>
+</div>
 
+
+<div>{{ builds }}</div>
+<div class="container mb-3 mt-3">
+   <table id="example" class="display" style="width:100%">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>AAAAAAAAA</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+
+                <td ><div id="100" class="base_hcon" >++</div>
+                   <table>
+                    <div  class="h_con" id="100_hidden" >
+
+                        <div>
+                            <form>
+                          <label for="fname">Analysis Result:</label><br>
+                          <input type="text" id="fname" name="fname"><br>
+                          <label for="lname">Type:</label><br>
+                                <select name="cars" id="cars">
+                                  <option value="volvo">Automation Script</option>
+                                  <option value="saab">Env</option>
+                                  <option value="mercedes">Code</option>
+                                  <option value="audi">BUg</option>
+                                </select>
+
+                                <label for="lname">Comment:</label><br>
+                                <input type="text" id="lname" name="lname">
+                                <br>
+                                <br>
+                                <button type="button" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                    </div>
+                     </table>
+                </td>
+
+
+
+
+
+            </tr>
+            <tr>
+                <td>AAAAAAAAA</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+
+                <td ><div id="222">++</div>
+                   <table>
+                    <div  class="h_con">
+
+                        <div>
+                            <form>
+                          <label for="fname">Analysis Result:</label><br>
+                          <input type="text" id="fname" name="fname"><br>
+                          <label for="lname">Type:</label><br>
+                                <select name="cars" id="cars">
+                                  <option value="volvo">Automation Script</option>
+                                  <option value="saab">Env</option>
+                                  <option value="mercedes">Code</option>
+                                  <option value="audi">BUg</option>
+                                </select>
+
+                                <label for="lname">Comment:</label><br>
+                                <input type="text" id="lname" name="lname">
+                                <br>
+                                <br>
+                                <button type="button" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                    </div>
+                     </table>
+                </td>
+
+
+
+
+
+            </tr>
+        </tbody>
+   </table>
+</div>
 <div class="container">
     {% block content %}
 
@@ -80,7 +195,7 @@
         <div class="navbar-text pull-left">
         </div>
         <div class="navbar-text pull-right">
-            <h4>Sample location</h4>
+              &copy;Credits
         </div>
         <!--Below is the copyright information for the site. You can fill in your own here.-->
         <div class="navbar-text pull-left">
