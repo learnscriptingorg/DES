@@ -45,24 +45,22 @@ $(function(){
        var data_table=$("#example");
        var project_name=$("#project_name").val();
        var build_name=$("#builds").val();
-
-       var url = $("#build_link").attr("data-url");
-       alert(url );
-       console.log(url);
+       //alert(build_name );
+       var url = $("#builds").attr("data-url");
                  $.ajax({
                             url: url,
                             data: {
                                 project_name: project_name,
                                 build_name: build_name
                                    },
-                           // success: function (data){
-                            //    console.log(data.name);
-                             //   $.each(data.name, function(key, value) {
+                            success: function (data){
+                                console.log(data.name);
+                                $.each(data.name, function(key, value) {
 
-                             //   data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td><td>"+value[6] + "</td></tr>");
+                                data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>");
                                 //console.log(value[]);
-                               //    });                                     }
-                                            });
+                                   });                                     }
+                                             });
     });
 });
 </script>
@@ -98,8 +96,8 @@ $(document).ready(function(){
         <option>2</option>
         <option>3</option>
     </select>
-    <span class="badge badge-pill badge-primary" id="build_link" data-url="{% url 'load_build'%}">Build Name</span>
-    <select id="builds" >
+    <span class="badge badge-pill badge-primary" data-url="{% url 'index'%}">Build Name</span>
+    <select id="builds">
         <option>1</option>
     </select>
  <span class="badge badge-pill badge-primary">

@@ -28,8 +28,8 @@ def index(request):
 
     # if br_name == None:
     #     build_nums = None
-    # if br_name != None and build_name!=None:
-    #     return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")
+    if br_name != None and build_name!=None:
+        return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")
     if br_name != None:
         print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
         return HttpResponse(json.dumps({'name': build_nums}), content_type="application/json")
@@ -37,12 +37,3 @@ def index(request):
         return render(request, 'index1.html')
 
 
-def load_build(request):
-    print("hearrrrrrtttttttttttttttttttttttttttttt")
-    br_name = request.GET.get('project_name')
-
-    build_name = request.GET.get('build_name')
-    data_set = db_conn.db_conn().get_data_table('Auroral_Sanity_Suite')
-    #if br_name != None and build_name!=None:
-    render(request, 'load_build.html')
-        #return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")
