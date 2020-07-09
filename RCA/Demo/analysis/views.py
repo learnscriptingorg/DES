@@ -30,6 +30,7 @@ def index(request):
     #     build_nums = None
     if br_name != None and build_name!=None:
         return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")
+
     if br_name != None:
         print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
         return HttpResponse(json.dumps({'name': build_nums}), content_type="application/json")
@@ -37,3 +38,7 @@ def index(request):
         return render(request, 'index1.html')
 
 
+def load_build(request):
+    print("rrrrrrrrrrrrrrr")
+    results = [[1, 2, 3, 4 ,8,8], [5, 6, 7, 8,9,9], [9, 10, 11, 12,9,9], [13, 14, 15, 16,9,9]]
+    return render( request,'load_build.html',{'data':results})

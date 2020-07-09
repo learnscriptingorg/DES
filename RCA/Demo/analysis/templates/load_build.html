@@ -152,6 +152,13 @@ $(document).ready(function(){
                      </table>
                 </td>
             </tr>
+         {% for rowval in data %}
+             <tr>
+             {% for val in rowval %}
+              <td>{{val}}</td>
+             {% endfor %}
+            </tr>
+          {% endfor %}
         </tbody>
    </table>
 </div>
@@ -166,7 +173,7 @@ $(document).ready(function(){
         </div>
         <!--Below is the copyright information for the site. You can fill in your own here.-->
         <div class="navbar-text pull-left">
-            &copy;Foter Build
+            &copy;Foter Build nnnnnnnn
         </div>
     </div>
 </footer>

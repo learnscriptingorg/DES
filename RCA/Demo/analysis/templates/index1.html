@@ -39,6 +39,9 @@
         });
 
     </script>
+    <script>
+
+    </script>
 <script>
 $(function(){
     $("#load_data").click(function(){
@@ -54,12 +57,19 @@ $(function(){
                                 build_name: build_name
                                    },
                             success: function (data){
-                                console.log(data.name);
+                            $('#example').DataTable( {
+                                        data: data
+                                    } );
+                               console.log(data.name);
+                               // var table_body;
                                 $.each(data.name, function(key, value) {
+                                //table_body=table_body+"<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>"
+                                //table_data=table_data+table_body;
+                                //data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>");
 
-                                data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>");
                                 //console.log(value[]);
-                                   });                                     }
+                                   });    // data_table.append(table_body);
+                                       }
                                              });
     });
 });
