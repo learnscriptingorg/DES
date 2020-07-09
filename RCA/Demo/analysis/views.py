@@ -14,7 +14,8 @@ def index(request):
 
     br_name = request.GET.get('project_name')
 
-    build_num = request.GET.get('build_num')
+    build_name = request.GET.get('build_name')
+    print("build name:",build_name)
     print(request.GET.get('project_name'))
     br_names = [2, 3, 4, 43, 5, 345, 34, 5]
     build_nums = [3345, 45, 34, 543, 5, 345, 34, 5445, 35, 435, 4354, 5, 345534]
@@ -23,13 +24,25 @@ def index(request):
     # db_ob.close_conn(con)
     # data_set=xml_data_parser.get_data()
     # print(data_set)
+    data_set=db_conn.db_conn().get_data_table('Auroral_Sanity_Suite')
 
-
-    if br_name == None:
-        build_nums = None
+    # if br_name == None:
+    #     build_nums = None
+    # if br_name != None and build_name!=None:
+    #     return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")
     if br_name != None:
+        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
         return HttpResponse(json.dumps({'name': build_nums}), content_type="application/json")
     else:
         return render(request, 'index1.html')
 
 
+def load_build(request):
+    print("hearrrrrrtttttttttttttttttttttttttttttt")
+    br_name = request.GET.get('project_name')
+
+    build_name = request.GET.get('build_name')
+    data_set = db_conn.db_conn().get_data_table('Auroral_Sanity_Suite')
+    #if br_name != None and build_name!=None:
+    render(request, 'load_build.html')
+        #return HttpResponse(json.dumps({'name': data_set}), content_type="application/json")

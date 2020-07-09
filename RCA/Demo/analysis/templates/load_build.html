@@ -45,10 +45,8 @@ $(function(){
        var data_table=$("#example");
        var project_name=$("#project_name").val();
        var build_name=$("#builds").val();
-
-       var url = $("#build_link").attr("data-url");
-       alert(url );
-       console.log(url);
+       //alert(build_name );
+       var url = $("#build_name").attr("data-url");
                  $.ajax({
                             url: url,
                             data: {
@@ -62,7 +60,7 @@ $(function(){
                              //   data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td><td>"+value[6] + "</td></tr>");
                                 //console.log(value[]);
                                //    });                                     }
-                                            });
+                                             });
     });
 });
 </script>
@@ -98,8 +96,8 @@ $(document).ready(function(){
         <option>2</option>
         <option>3</option>
     </select>
-    <span class="badge badge-pill badge-primary" id="build_link" data-url="{% url 'load_build'%}">Build Name</span>
-    <select id="builds" >
+    <span class="badge badge-pill badge-primary" id="build_name" data-url="{% url 'load_build'%}" >Build Name</span>
+    <select id="builds">
         <option>1</option>
     </select>
  <span class="badge badge-pill badge-primary">
@@ -168,7 +166,7 @@ $(document).ready(function(){
         </div>
         <!--Below is the copyright information for the site. You can fill in your own here.-->
         <div class="navbar-text pull-left">
-            &copy;Foter xxxxuuuuu
+            &copy;Foter Build
         </div>
     </div>
 </footer>
