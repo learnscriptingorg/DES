@@ -132,6 +132,13 @@ $(document).ready(function(){
             </tr>
         </thead>
         <tbody>
+            {% for rowval in data %}
+             <tr>
+             {% for val in rowval %}
+              <td>{{val}}</td>
+             {% endfor %}
+            </tr>
+          {% endfor %}
             <tr>
                 <td>AAAAAAAAA</td>
                 <td>Edinburgh</td>

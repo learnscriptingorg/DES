@@ -90,44 +90,79 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="container" style="background: green;" >
+    <form action="{% url 'index' %}" method = "POST">{% csrf_token %}
     <span class="badge badge-pill badge-primary">BR Name</span>
-    <select class="selectpicker" id="project_name" data-url="{% url 'index'%}">
+    <select class="selectpicker" name="project_name" id="project_name" data-url="{% url 'index'%}">
         <option>1</option>
         <option>2</option>
         <option>3</option>
     </select>
-    <span class="badge badge-pill badge-primary" id="build_name" data-url="{% url 'load_build'%}" >Build Name</span>
-    <select id="builds">
+    <span class="badge badge-pill badge-primary" data-url="{% url 'index'%}">Build Name</span>
+    <select id="builds" name="build_name">
         <option>1</option>
     </select>
  <span class="badge badge-pill badge-primary">
      <button class="btn btn-primary" type="submit" id="load_data">Load </button>
  </span>
-
+</form>
 </div>
 
 <br>
 <br>
 <div class="container mb-3 mt-3">
-   <table id="example" class="display" style="width:100%">
+   <table id="example" class="display responsive nowrap" >
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Position</th>
                 <th>Office</th>
                 <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+
+
+
+
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>AAAAAAAAA</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-                <td ><div id="100" class="base_hcon" >++</div>
+<!--            <tr>-->
+<!--                <td>AAAAAAAAA</td>-->
+<!--                <td>AAAAAAAAA</td>-->
+<!--                <td>AAAAAAAAA</td>-->
+<!--                 <td>AAAAAAAAA</td>-->
+
+<!--&lt;!&ndash;                <td ><div id="100" class="base_hcon" >++</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                   <table >&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div  class="h_con" id="100_hidden" >&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <form>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <label for="fname">Analysis Result:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <input type="text" id="fname" name="fname"><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <label for="lname">Type:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <select name="cars" id="cars">&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <option value="volvo">Automation Script</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <option value="saab">Env</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <option value="mercedes">Code</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  <option value="audi">Bug</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </select>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="lname">Comment:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" id="lname" name="lname">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button type="button" class="btn btn-primary">Update</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                     </table>&ndash;&gt;-->
+<!--&lt;!&ndash;                </td>&ndash;&gt;-->
+<!--            </tr>-->
+
+         {% for rval in data %}
+             <tr>
+
+              <td>{{ rval.3 }}</td>
+                  <td>{{ rval.4 }}</td>
+                  <td>{{ rval.5 }}</td>
+                  <td ><div id="100" class="base_hcon" >++</div>
                    <table >
                     <div  class="h_con" id="100_hidden" >
                         <div>
@@ -151,12 +186,11 @@ $(document).ready(function(){
                     </div>
                      </table>
                 </td>
-            </tr>
-         {% for rowval in data %}
-             <tr>
-             {% for val in rowval %}
-              <td>{{val}}</td>
-             {% endfor %}
+
+
+<!--             {% for val in rval %}-->
+<!--              <td>{{ val }}</td>-->
+<!--             {% endfor %}-->
             </tr>
           {% endfor %}
         </tbody>

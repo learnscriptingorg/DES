@@ -1,12 +1,13 @@
 import psycopg2
 from .xml_data_parser import xml_data_parser
+
 class db_conn():
 
     def get_conn(self,user="user",password="password123",host="127.0.0.1",port="5432",database="des_db"):
 
         try:
                 connection = psycopg2.connect(user=user, password=password, host=host, port=port, database=database)
-                print ( connection.get_dsn_parameters(),"\n")
+                #print ( connection.get_dsn_parameters(),"\n")
 
         except (Exception, psycopg2.Error) as error :
             print ("Error while connecting to PostgreSQL", error)
@@ -51,7 +52,16 @@ class db_conn():
         #     print(i[2])
         cursor.close()
         conn.close()
-        return data_set
+        #print(type(data_set))
+        master_data_set=[]
+        data_dic={}
+        for j in data_set:
+            data_dic = {}
+            for i in range(0,len(j)):
+                data_dic.update({i:j[i]})
+            master_data_set.append(data_dic)
+        #print(master_data_set)
+        return master_data_set
 
 if __name__=="__main__":
     db_conn().get_data_table('Auroral_Sanity_Suite')

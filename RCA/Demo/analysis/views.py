@@ -31,10 +31,10 @@ def index(request):
         return HttpResponse(json.dumps({'name': build_nums}), content_type="application/json")
     else:
         #print("Inside main page ")
-        return render(request, 'index1.html')
+        return render(request, 'load_build.html')
 
 
-def load_build(request):
-    print("rrrrrrrrrrrrrrr")
-    results = [[1, 2, 3, 4 ,8,8], [5, 6, 7, 8,9,9], [9, 10, 11, 12,9,9], [13, 14, 15, 16,9,9]]
-    return render( request,'load_build.html',{'data':results})
+# def load_build(request):
+#     print("rrrrrrrrrrrrrrr")
+#     results = [[1, 2, 3, 4 ,8,8], [5, 6, 7, 8,9,9], [9, 10, 11, 12,9,9], [13, 14, 15, 16,9,9]]
+#     return render( request,'load_build.html',{'data':results})
