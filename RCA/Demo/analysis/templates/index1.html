@@ -42,38 +42,38 @@
     <script>
 
     </script>
-<script>
-$(function(){
-    $("#load_data").click(function(){
-       var data_table=$("#example");
-       var project_name=$("#project_name").val();
-       var build_name=$("#builds").val();
-       //alert(build_name );
-       var url = $("#builds").attr("data-url");
-                 $.ajax({
-                            url: url,
-                            data: {
-                                project_name: project_name,
-                                build_name: build_name
-                                   },
-                            success: function (data){
-                            $('#example').DataTable( {
-                                        data: data
-                                    } );
-                               console.log(data.name);
-                               // var table_body;
-                                $.each(data.name, function(key, value) {
-                                //table_body=table_body+"<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>"
-                                //table_data=table_data+table_body;
-                                //data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>");
+<!--<script>-->
+<!--$(function(){-->
+<!--    $("#load_data").click(function(){-->
+<!--       var data_table=$("#example");-->
+<!--       var project_name=$("#project_name").val();-->
+<!--       var build_name=$("#builds").val();-->
+<!--       //alert(build_name );-->
+<!--       var url = $("#builds").attr("data-url");-->
+<!--                 $.ajax({-->
+<!--                            url: url,-->
+<!--                            data: {-->
+<!--                                project_name: project_name,-->
+<!--                                build_name: build_name-->
+<!--                                   },-->
+<!--                            success: function (data){-->
+<!--                            $('#example').DataTable( {-->
+<!--                                        data: data-->
+<!--                                    } );-->
+<!--                               console.log(data.name);-->
+<!--                               // var table_body;-->
+<!--                                $.each(data.name, function(key, value) {-->
+<!--                                //table_body=table_body+"<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>"-->
+<!--                                //table_data=table_data+table_body;-->
+<!--                                //data_table.append("<tr><td>" + value[0] + "</td><td>" +value[1] + "</td><td>"+ value[1]+ "</td><td>"+ value[2]+ "</td><td>"+value[3] + "</td><td>"+value[4] + "</td><td>"+value[5] + "</td></td>"+value[6] + "</td></tr>");-->
 
-                                //console.log(value[]);
-                                   });    // data_table.append(table_body);
-                                       }
-                                             });
-    });
-});
-</script>
+<!--                                //console.log(value[]);-->
+<!--                                   });    // data_table.append(table_body);-->
+<!--                                       }-->
+<!--                                             });-->
+<!--    });-->
+<!--});-->
+<!--</script>-->
     <script>
 
 $(document).ready(function(){
@@ -100,20 +100,21 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="container" style="background: green;" >
+    <form action="{% url 'index' %}" method = "POST">{% csrf_token %}
     <span class="badge badge-pill badge-primary">BR Name</span>
-    <select class="selectpicker" id="project_name" data-url="{% url 'index'%}">
+    <select class="selectpicker" name="project_name" id="project_name" data-url="{% url 'index'%}">
         <option>1</option>
         <option>2</option>
         <option>3</option>
     </select>
     <span class="badge badge-pill badge-primary" data-url="{% url 'index'%}">Build Name</span>
-    <select id="builds">
+    <select id="builds" name="build_name">
         <option>1</option>
     </select>
  <span class="badge badge-pill badge-primary">
      <button class="btn btn-primary" type="submit" id="load_data">Load </button>
  </span>
-
+</form>
 </div>
 
 <br>
@@ -122,8 +123,8 @@ $(document).ready(function(){
    <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
+                <th>TC #</th>
+                <th>TC Name</th>
                 <th>Office</th>
                 <th>Age</th>
                 <th>Start date</th>
