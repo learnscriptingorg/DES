@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>DES Dashboard xxxz</title>
 
-<!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
-<!--            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
-<!--            crossorigin="anonymous"></script>-->
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -117,44 +114,10 @@ $(document).ready(function(){
                 <th>Position</th>
                 <th>Office</th>
                 <th>Age</th>
-
-
-
-
             </tr>
         </thead>
         <tbody>
-<!--            <tr>-->
-<!--                <td>AAAAAAAAA</td>-->
-<!--                <td>AAAAAAAAA</td>-->
-<!--                <td>AAAAAAAAA</td>-->
-<!--                 <td>AAAAAAAAA</td>-->
 
-<!--&lt;!&ndash;                <td ><div id="100" class="base_hcon" >++</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                   <table >&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div  class="h_con" id="100_hidden" >&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <form>&ndash;&gt;-->
-<!--&lt;!&ndash;                          <label for="fname">Analysis Result:</label><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                          <input type="text" id="fname" name="fname"><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                          <label for="lname">Type:</label><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <select name="cars" id="cars">&ndash;&gt;-->
-<!--&lt;!&ndash;                                  <option value="volvo">Automation Script</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                                  <option value="saab">Env</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                                  <option value="mercedes">Code</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                                  <option value="audi">Bug</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </select>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <label for="lname">Comment:</label><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <input type="text" id="lname" name="lname">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <br>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <br>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <button type="button" class="btn btn-primary">Update</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </form>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                     </table>&ndash;&gt;-->
-<!--&lt;!&ndash;                </td>&ndash;&gt;-->
-<!--            </tr>-->
 
          {% for rval in data %}
              <tr>
@@ -162,9 +125,10 @@ $(document).ready(function(){
               <td>{{ rval.3 }}</td>
                   <td>{{ rval.4 }}</td>
                   <td>{{ rval.5 }}</td>
-                  <td ><div id="100" class="base_hcon" >++</div>
+                  <td ><div id={{ rval.3 }} class="base_hcon" >++</div>
+
                    <table >
-                    <div  class="h_con" id="100_hidden" >
+                    <div  class="h_con" id={{ rval.3 }}_hidden >
                         <div>
                             <form>
                           <label for="fname">Analysis Result:</label><br>
@@ -188,9 +152,6 @@ $(document).ready(function(){
                 </td>
 
 
-<!--             {% for val in rval %}-->
-<!--              <td>{{ val }}</td>-->
-<!--             {% endfor %}-->
             </tr>
           {% endfor %}
         </tbody>
